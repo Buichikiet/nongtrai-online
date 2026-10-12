@@ -316,8 +316,19 @@ const ctx = {
   setBridge: b => { bridge = b; }
 };
 
+// ====== KHỞI ĐỘNG BOT DISCORD ======
+console.log('🔑 DISCORD_TOKEN:', E.DISCORD_TOKEN ? `CÓ (${E.DISCORD_TOKEN.length} ký tự)` : 'KHÔNG CÓ');
 if (E.DISCORD_TOKEN) {
-  try { require('./discord')(ctx); } catch(e) { console.error('Lỗi bot Discord:', e.message); }
+  console.log('🚀 Đang khởi động bot Discord...');
+  try {
+    require('./discord')(ctx);
+    console.log('✅ Đã gọi module discord.js');
+  } catch(e) {
+    console.error('❌ Lỗi require discord.js:', e.message);
+    console.error(e.stack);
+  }
+} else {
+  console.log('❌ DISCORD_TOKEN không tồn tại — bot đéo chạy');
 }
 
 server.listen(PORT, () => console.log(`🌱 Server Nông Trại VIP chạy tại http://localhost:${PORT}`));
