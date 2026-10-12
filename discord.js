@@ -431,5 +431,7 @@ module.exports = function start(ctx) {
   });
   ctx.getSetup = () => setup;
 
-  client.login(E.DISCORD_TOKEN);
+  client.login(E.DISCORD_TOKEN)
+  .then(() => console.log('🤖 Bot Discord đã online:', client.user.tag))
+  .catch(e => console.error('❌ Bot login lỗi:', e.message));
 };
