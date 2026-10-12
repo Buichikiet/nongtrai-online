@@ -431,7 +431,17 @@ module.exports = function start(ctx) {
   });
   ctx.getSetup = () => setup;
 
-  client.login(E.DISCORD_TOKEN)
+  // ====== LOGIN BOT ======
+console.log('🤖 Đang login bot Discord...');
+client.login(E.DISCORD_TOKEN)
   .then(() => console.log('🤖 Bot Discord đã online:', client.user.tag))
-  .catch(e => console.error('❌ Bot login lỗi:', e.message));
+  .catch(e => {
+    console.error('❌ Bot login lỗi:', e.message);
+    if (e.message.includes('disallowed intents')) {
+      console.error('👉 Bật Message Content Intent + Server Members Intent tại https://discord.com/developers/applications');
+    }
+    if (e.message.includes('TokenInvalid')) {
+      console.error('👉 Token sai — Reset Token trong Developer Portal → Bot');
+    }
+  });
 };
