@@ -1,7 +1,6 @@
-/* Chỉ cần sửa file này khi đặt giao diện (public/) ở web tĩnh khác với server.
-   Khi chạy bằng "npm start", server tự trả /config.js nên không cần sửa. */
 window.CFG = {
-  googleClientId: "",          // Google OAuth Client ID
-  server: "",                  // vd: "https://nongtrai-server.onrender.com" (để trống = cùng domain)
-  dev: false
+  googleClientId: "612976515364-7m96f72id0ohm6gabqco65uo1p7nq9a8.apps.googleusercontent.com",
+  server: "https://nongtrai-online.onrender.com",
+  dev: false,
+  invite: "https://discord.gg/TZRfuhbqJA"
 };
